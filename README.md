@@ -1,29 +1,33 @@
-# CS6230-CAD-FOR-VLSI---PROJECT 1 (MULTIPLY ACCUMULATE)
+# Project 1 : Pipelined and Non-pipelined Multiply Accumulate Unit (MAC)
 
-### A MAC operation, performed on 3 numbers A, B, and C, is formulated as shown below.
-##### MAC = A*B + C
+### Pushpa Chaudhary - EE21B109, Fardeen Razif - EE21B046
 
-### This has 2 different folders, each containing bluespec verilog code and cocotb testbench for 2 different data types:
-##### 1. Non-pipelined MAC 
-##### 2. Pipelined MAC 
+## How to Run
 
-### 2 different data types are:
-##### 1. S1. (A: int8 , B: int8 , C: int32) -> (MAC: int32)
-##### 2. S2. (A: bf16, B: bf16, C: fp32) -> (MAC: fp32)
+* Download the `.zip` file. It would have `mac_pipeline` and `mac_nonpipeline` folders. 
+* Enter into any one of the directories.
+* Enter `make clean` command to wipe off any previous compilations and then `make generate_verilog` command to compile and generate a Verilog file for the BSV design.
+* `Mac_verif` folder inside both directories has `test_mac.py` as the cocotb testbench.
+  * `test_mac.py` verifies the design for given test cases and any random test case. 
+* Enter `make simulate` command to run this `.py` testbench. 
+  * It will automatically start verifying all given test cases and will fail if any assertions fail. 
+  * Make sure to change `s` accordingly (`s = 1` for `int32`, `s = 0` for `bfloat16`).
+* This also executes coverage. 
+  * It will automatically start executing walking `1` and walking `0` input patterns, which will be verified using the output generated from `model_mac.py` file.
 
-### Structure: 
-##### The project is uploaded as a zip file which contains 2 folders.
-##### 1. Mac_nonpipeline : Uses ripple carry adder and shift and add multiplier to implement mac. There is a mac.bsv file, test_mac.py file which implements cocotb testbench to verify the design. Test cases are uploaded in mac_verif folder and and a model_mac.py is created to implement coverage (result in yaml file).
-#### 2. Mac_pipeline : This implements 2 stage pipeline with FIFOs, 1st being multiply and second being adder. The folder structure is same as mac_nonpipeline.
-##### The coverage includes walking 1, walking 0 and random set of inputs. 
-##### The detailed report of microarchitecture, design and verification methodologies is uploaded as CAD_for_VLSI_2024_Project_1.pdf
+### Status
+1. **int32**:
+   * Pipelined design: 
+     * Code - completed
+     * Verification - completed
+   * Non-pipelined design: 
+     * Code - completed
+     * Verification - completed
 
-### This project is made by Pushpa Chaudhary (EE21B109) and Fardeen Razif (EE21B046) 
-##### Seperate contributions:
-##### 1. Mac_pipeline and Mac_nonpipeline bsv design : Pushpa
-##### 2. Cocotb testbench (test_mac.py) and model_mac.py - Pushpa
-##### 3. General debugging - Both
-##### 4. Report - Fardeen
-
-
-
+2. **bfloat16**:
+   * Pipelined design: 
+     * Code - completed
+     * Verification - completed
+   * Non-pipelined design: 
+     * Code - completed
+     * Verification - completed
