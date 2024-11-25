@@ -88,4 +88,5 @@ The project is uploaded as a `.zip` file containing two folders:
 1. **Mac_pipeline and Mac_nonpipeline BSV design**: Pushpa  
 2. **Cocotb testbench (`test_mac.py`) and `model_mac.py`**: Pushpa  
 3. **General debugging**: Both  
-4. **Report**: Fardeen  
+4. **Report**: Fardeen
+5. **Readme**: Pushpa
